@@ -1,11 +1,29 @@
 body{
   background-color: 	#afeee8;
 }
+
 h1{
   font-family: "ヒラギノ角ゴシック";
   font-weight: 100;
   font-size: 70px;
 }
+
 .how-to-count{
   font-size: 30px;
+}
+
+#hiragana-input{
+  box-sizing: border-box;
+  width: 50%;
+}
+
+#for-images{
+  background-color: #ffffff;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  box-sizing: border-box;
+  width: 50%;
+  height: 50%;
+  text-align: center;
 }
