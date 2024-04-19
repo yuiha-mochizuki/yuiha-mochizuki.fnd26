@@ -46,7 +46,7 @@ function download() {
   }
   html2canvas(image).then((canvas) => {
     const imageGeneration = document.createElement("tannka");
-    imageGeneration.href = canvas.toDataURL("image/png");
+    imageGeneration.href = canvas.toDataURL();
     imageGeneration.download = "result.png";
     imageGeneration.click();
   });
