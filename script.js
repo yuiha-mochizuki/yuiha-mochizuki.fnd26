@@ -4,7 +4,7 @@
 const hiraganaInput = document.querySelector('#hiragana-input');
 const numberOfNotes = document.querySelector('.number-of-notes');
 const forImages = document.querySelector('#for-images');
-
+const saveButton = document.querySelector('#save-button')
 // 拗音を数えて引く
 function countHiragana(){
   let wordCount =  hiraganaInput.value.length;
@@ -36,3 +36,20 @@ function matchForImages(){
 }
 
 hiraganaInput.addEventListener('input', matchForImages)
+
+// 画像として保存
+function download() {
+  const image = document.querySelector("#for-images");
+  if (!image) {
+    console.error("要素が見つかりませんでした。");
+    return;
+  }
+  html2canvas(image).then((canvas) => {
+    const imageGeneration = document.createElement("tannka");
+    imageGeneration.href = canvas.toDataURL("image/png");
+    imageGeneration.download = "result.png";
+    imageGeneration.click();
+  });
+}
+
+saveButton.addEventListener('click', download);
