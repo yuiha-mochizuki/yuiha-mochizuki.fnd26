@@ -44,12 +44,12 @@ function download() {
     console.error("要素が見つかりませんでした。");
     return;
   }
-  html2canvas(image).then((canvas) => {
-    const imageGeneration = document.createElement("tannka");
-    imageGeneration.href = canvas.toDataURL();
-    imageGeneration.download = "result.png";
-    imageGeneration.click();
-  });
+  const text = image.value;
+  const blob = new Blob([text],{type: 'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'sample.txt';
+  a.click();
 }
 
 saveButton.addEventListener('click', download);
