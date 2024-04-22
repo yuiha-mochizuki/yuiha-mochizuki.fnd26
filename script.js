@@ -38,6 +38,13 @@ function matchForImages(){
 hiraganaInput.addEventListener('input', matchForImages)
 
 // 画像として保存
+let today = new Date();
+let year = today.getFullYear();
+let month = today.getMonth() + 1;
+let day = today.getDate().toString().padStart(2, "0");
+
+today = year + "" + month.toString().padStart(2, "0") + "" + day;
+
 function download() {
   const image = document.querySelector("#for-images");
   if (!image) {
@@ -48,7 +55,7 @@ function download() {
   const blob = new Blob([text],{type: 'text/plain'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'sample.txt';
+  a.download = today + '.txt';
   a.click();
 }
 
